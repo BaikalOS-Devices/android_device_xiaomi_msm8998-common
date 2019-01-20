@@ -153,7 +153,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.telephony.default_network=9,9 \
 	ro.vendor.use_data_netmgrd=true \
 	telephony.lteOnCdmaDevice=1 \
-	vendor.voice.path.for.pcm.voip=true
+	vendor.voice.path.for.pcm.voip=true \
+	persist.vendor.qti.pie.telephony=1
 
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \

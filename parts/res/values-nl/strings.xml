@@ -14,13 +14,4 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
-    <string name="app_name">Xiaomi</string>
-    <string name="advanced_settings">Дополнительные настройки</string>
-    <string name="category_system">Система</string>
-    <string name="vib_strength_title_head">Сила вибрации</string>
-    <string name="taptowake_title">Включение нажатием</string>
-    <string name="taptowake_summary">Двойной тап в любом месте экрана, что бы разбудить устройство</string>
-    <string name="display_title">Дисплей</string>
-    <string name="device_doze_title">Индикация событий (doze)</string>
-</resources>
+<resources></resources>

@@ -16,11 +16,11 @@
 -->
 <resources>
     <string name="app_name">Xiaomi</string>
-    <string name="advanced_settings">Дополнительные настройки</string>
-    <string name="category_system">Система</string>
-    <string name="vib_strength_title_head">Сила вибрации</string>
-    <string name="taptowake_title">Включение нажатием</string>
-    <string name="taptowake_summary">Двойной тап в любом месте экрана, что бы разбудить устройство</string>
-    <string name="display_title">Дисплей</string>
-    <string name="device_doze_title">Индикация событий (doze)</string>
+    <string name="advanced_settings">Avanzado</string>
+    <string name="category_system">Sistema</string>
+    <string name="vib_strength_title_head">Intensidad de vibración</string>
+    <string name="taptowake_title">Pulsar para activar</string>
+    <string name="taptowake_summary">Pulsar dos veces en cualquier parte de la pantalla para activar el dispositivo</string>
+    <string name="display_title">Pantalla</string>
+    <string name="device_doze_title">Pantalla ambiente</string>
 </resources>

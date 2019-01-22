@@ -16,10 +16,7 @@
 -->
 <resources>
     <string name="app_name">Xiaomi</string>
-    <string name="category_system">Sistema</string>
-    <string name="vib_strength_title_head">Intensità vibrazione</string>
     <string name="taptowake_title">Tocca per riattivare</string>
     <string name="taptowake_summary">Tocca due volte un punto qualsiasi dello schermo per riattivare il dispositivo</string>
-    <string name="display_title">Schermo</string>
     <string name="device_doze_title">Display Ambient</string>
 </resources>

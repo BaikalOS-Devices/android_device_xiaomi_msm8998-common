@@ -17,10 +17,7 @@
 <resources>
     <string name="app_name">Xiaomi</string>
     <string name="advanced_settings">Erweitert</string>
-    <string name="category_system">System</string>
-    <string name="vib_strength_title_head">Vibrationsstärke</string>
     <string name="taptowake_title">Zum Aktivieren tippen</string>
     <string name="taptowake_summary">Doppeltippen Sie auf den Bildschirm, um das Gerät zu aktivieren</string>
-    <string name="display_title">Display</string>
     <string name="device_doze_title">Inaktivitätsdisplay</string>
 </resources>

@@ -21,7 +21,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+import android.support.v7.preference.PreferenceManager;
 import android.provider.Settings;
 import android.text.TextUtils;
 
@@ -50,5 +50,9 @@ public class Startup extends BroadcastReceiver {
         restore(TapToWakeSwitch.getFile(), enabled);
 
         VibratorStrengthPreference.restore(context);
+        S2SVibratorStrengthPreference.restore(context);
+        String storedValue = PreferenceManager.getDefaultSharedPreferences(context).getString(DeviceSettings.S2S_KEY, "0");
+        Utils.writeValue(DeviceSettings.FILE_S2S_TYPE, storedValue);
+        DisplayCalibration.restore(context);
     }
 }

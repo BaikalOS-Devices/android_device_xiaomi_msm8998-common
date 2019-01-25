@@ -32,7 +32,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.os.Vibrator;
 
-public class VibratorStrengthPreference extends Preference implements
+public class S2SVibratorStrengthPreference extends Preference implements
         SeekBar.OnSeekBarChangeListener {
 
     private SeekBar mSeekBar;
@@ -41,16 +41,12 @@ public class VibratorStrengthPreference extends Preference implements
     private int mMaxValue;
     private Vibrator mVibrator;
 
-    private static final String FILE_LEVEL = "/sys/class/timed_output/vibrator/vtg_level";
-    private static final long testVibrationPattern[] = {0,250};
+    private static final String FILE_LEVEL = "/sys/sweep2sleep/vib_strength";
 
-    public VibratorStrengthPreference(Context context, AttributeSet attrs) {
+    public S2SVibratorStrengthPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
-        // from drivers/platform/msm/qpnp-haptic.c
-        // #define QPNP_HAP_VMAX_MIN_MV		116
-        // #define QPNP_HAP_VMAX_MAX_MV		3596
-        mMinValue = 116;
-        mMaxValue = 3596;
+        mMinValue = 0;
+        mMaxValue = 90;
 
         mVibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
         setLayoutResource(R.layout.preference_seek_bar);
@@ -71,32 +67,29 @@ public class VibratorStrengthPreference extends Preference implements
         return Utils.fileWritable(FILE_LEVEL);
     }
 
-	public static String getValue(Context context) {
-		return Utils.getFileValue(FILE_LEVEL, "3596");
-	}
+    public static String getValue(Context context) {
+        return Utils.getFileValue(FILE_LEVEL, "20");
+    }
 
-	private void setValue(String newValue, boolean withFeedback) {
-	    Utils.writeValue(FILE_LEVEL, newValue);
+    private void setValue(String newValue) {
+        Utils.writeValue(FILE_LEVEL, newValue);
         SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
-        editor.putString(DeviceSettings.KEY_VIBSTRENGTH, newValue);
+        editor.putString(DeviceSettings.KEY_S2S_VIBSTRENGTH, newValue);
         editor.commit();
-	    if (withFeedback) {
-            mVibrator.vibrate(testVibrationPattern, -1);
-        }
-	}
+    }
 
     public static void restore(Context context) {
         if (!isSupported()) {
             return;
         }
 
-        String storedValue = PreferenceManager.getDefaultSharedPreferences(context).getString(DeviceSettings.KEY_VIBSTRENGTH, "2700"); 
+        String storedValue = PreferenceManager.getDefaultSharedPreferences(context).getString(DeviceSettings.KEY_S2S_VIBSTRENGTH, "20");
         Utils.writeValue(FILE_LEVEL, storedValue);
     }
 
     public void onProgressChanged(SeekBar seekBar, int progress,
             boolean fromTouch) {
-        setValue(String.valueOf(progress + mMinValue), true);
+        setValue(String.valueOf(progress + mMinValue));
     }
 
     public void onStartTrackingTouch(SeekBar seekBar) {
@@ -104,7 +97,6 @@ public class VibratorStrengthPreference extends Preference implements
     }
 
     public void onStopTrackingTouch(SeekBar seekBar) {
-        // NA
+            mVibrator.vibrate(mSeekBar.getProgress());
     }
 }
-

@@ -23,47 +23,71 @@ import android.content.res.Resources;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.ListPreference;
-import android.preference.Preference;
-import android.preference.PreferenceActivity;
-import android.preference.PreferenceCategory;
-import android.preference.PreferenceScreen;
-import android.preference.TwoStatePreference;
+import android.os.SystemProperties;
+import android.support.v14.preference.PreferenceFragment;
+import android.support.v7.preference.ListPreference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceCategory;
+import android.support.v7.preference.PreferenceManager;
+import android.support.v7.preference.PreferenceScreen;
+import android.support.v14.preference.SwitchPreference;
+import android.support.v7.preference.TwoStatePreference;
 import android.provider.Settings;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+import android.util.Log;
 
-public class DeviceSettings extends PreferenceActivity implements
+public class DeviceSettings extends PreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String KEY_CATEGORY_DISPLAY = "display";
+    private static final String KEY_CATEGORY_CAMERA = "camera";
+    private static final String ENABLE_HAL3_KEY = "hal3";
+    public static final String S2S_KEY = "sweep2sleep";
     public static final String KEY_TAPTOWAKE_SWITCH = "taptowake";
     public static final String KEY_VIBSTRENGTH = "vib_strength";
+    public static final String KEY_S2S_VIBSTRENGTH = "s2s_vib_strength";
+    public static final String FILE_S2S_TYPE = "/sys/sweep2sleep/sweep2sleep";
 
     final String KEY_DEVICE_DOZE = "device_doze";
     final String KEY_DEVICE_DOZE_PACKAGE_NAME = "org.lineageos.settings.doze";
 
     private TwoStatePreference mTapToWakeSwitch;
     private VibratorStrengthPreference mVibratorStrength;
+    private static final String HAL3_SYSTEM_PROPERTY = "persist.camera.HAL3.enabled";
+
+    private S2SVibratorStrengthPreference mVibratorStrengthS2S;
+    private SwitchPreference mEnableHAL3;
+    private ListPreference mS2S;
+    private Preference mKcalPref;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+        setPreferencesFromResource(R.xml.main, rootKey);
 
-        addPreferencesFromResource(R.xml.main);
+        mKcalPref = findPreference("kcal");
+        mKcalPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                Intent intent = new Intent(getContext(), DisplayCalibration.class);
+                startActivity(intent);
+                return true;
+            }
+        });
 
-        ListView lv = getListView();
-        lv.setDivider(new ColorDrawable(Color.TRANSPARENT));
-        lv.setDividerHeight(0);
+        mEnableHAL3 = (SwitchPreference) findPreference(ENABLE_HAL3_KEY);
+        mEnableHAL3.setChecked(SystemProperties.getBoolean(HAL3_SYSTEM_PROPERTY, false));
+        mEnableHAL3.setOnPreferenceChangeListener(this);
+
+        mS2S = (ListPreference) findPreference(S2S_KEY);
+        mS2S.setValue(Utils.getFileValue(FILE_S2S_TYPE, "0"));
+        mS2S.setOnPreferenceChangeListener(this);
 
         mVibratorStrength = (VibratorStrengthPreference) findPreference(KEY_VIBSTRENGTH);
         if (mVibratorStrength != null) {
@@ -72,8 +96,13 @@ public class DeviceSettings extends PreferenceActivity implements
 
         mTapToWakeSwitch = (TwoStatePreference) findPreference(KEY_TAPTOWAKE_SWITCH);
         mTapToWakeSwitch.setEnabled(TapToWakeSwitch.isSupported());
-        mTapToWakeSwitch.setChecked(TapToWakeSwitch.isCurrentlyEnabled(this));
+        mTapToWakeSwitch.setChecked(TapToWakeSwitch.isCurrentlyEnabled(this.getContext()));
         mTapToWakeSwitch.setOnPreferenceChangeListener(new TapToWakeSwitch());
+
+        mVibratorStrengthS2S = (S2SVibratorStrengthPreference) findPreference(KEY_S2S_VIBSTRENGTH);
+        if (mVibratorStrengthS2S != null) {
+            mVibratorStrengthS2S.setEnabled(S2SVibratorStrengthPreference.isSupported());
+        }
 
         if (!isAppInstalled(KEY_DEVICE_DOZE_PACKAGE_NAME)) {
             PreferenceCategory displayCategory = (PreferenceCategory) findPreference(KEY_CATEGORY_DISPLAY);
@@ -82,30 +111,43 @@ public class DeviceSettings extends PreferenceActivity implements
 
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-        case android.R.id.home:
-            finish();
-            return true;
-        default:
-            break;
+   private void setEnableHAL3(boolean value) {
+        if(value) {
+            SystemProperties.set(HAL3_SYSTEM_PROPERTY, "1");
+        } else {
+            SystemProperties.set(HAL3_SYSTEM_PROPERTY, "0");
         }
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
+    public boolean onPreferenceTreeClick(Preference preference) {
+        return super.onPreferenceTreeClick(preference);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        final String key = preference.getKey();
+        boolean value;
+        String strvalue;
+        if (ENABLE_HAL3_KEY.equals(key)) {
+            value = (Boolean) newValue;
+            mEnableHAL3.setChecked(value);
+            setEnableHAL3(value);
+            return true;
+        } else if (S2S_KEY.equals(key)) {
+            strvalue = (String) newValue;
+            Utils.writeValue("/sys/sweep2sleep/sweep2sleep", strvalue);
+            SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
+            editor.putString(S2S_KEY, strvalue);
+            editor.commit();
+            return true;
+        }
+
         return true;
     }
 
     private boolean isAppInstalled(String uri) {
-        PackageManager pm = getPackageManager();
+        PackageManager pm = getContext().getPackageManager();
         try {
             pm.getPackageInfo(uri, PackageManager.GET_ACTIVITIES);
             return true;

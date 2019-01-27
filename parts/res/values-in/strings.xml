@@ -16,10 +16,10 @@
 -->
 <resources>
     <string name="app_name">Xiaomi</string>
-    <string name="advanced_settings">Дополнительные настройки</string>
-    <string name="taptowake_title">Включение нажатием</string>
-    <string name="taptowake_summary">Двойной тап в любом месте экрана, что бы разбудить устройство</string>
-    <string name="device_doze_title">Индикация событий (doze)</string>
+    <string name="advanced_settings">Advanced</string>
+    <string name="taptowake_title">Tap untuk bangun</string>
+    <string name="taptowake_summary">Tap dua kali dimana saja pada layar untuk membangunkan perangkat</string>
+    <string name="device_doze_title">Ambient Display</string>
     <!-- camera -->
     <!-- s2s -->
     <!-- Kcal -->

@@ -15,11 +15,11 @@
      limitations under the License.
 -->
 <resources>
-    <string name="app_name">Xiaomi</string>
-    <string name="advanced_settings">Дополнительные настройки</string>
-    <string name="taptowake_title">Включение нажатием</string>
-    <string name="taptowake_summary">Двойной тап в любом месте экрана, что бы разбудить устройство</string>
-    <string name="device_doze_title">Индикация событий (doze)</string>
+    <string name="app_name">샤오미</string>
+    <string name="advanced_settings">고급 설정</string>
+    <string name="taptowake_title">탭하여 대기 모드 해제</string>
+    <string name="taptowake_summary">화면 아무 곳이나 두 번 탭하여 기기 대기 모드 해제</string>
+    <string name="device_doze_title">앰비언트 디스플레이</string>
     <!-- camera -->
     <!-- s2s -->
     <!-- Kcal -->

@@ -16,10 +16,10 @@
 -->
 <resources>
     <string name="app_name">Xiaomi</string>
-    <string name="advanced_settings">Дополнительные настройки</string>
-    <string name="taptowake_title">Включение нажатием</string>
-    <string name="taptowake_summary">Двойной тап в любом месте экрана, что бы разбудить устройство</string>
-    <string name="device_doze_title">Индикация событий (doze)</string>
+    <string name="advanced_settings">Zaawansowane</string>
+    <string name="taptowake_title">Dotknij, aby wybudzić</string>
+    <string name="taptowake_summary">Kliknij dwukrotnie w dowolnym miejscu na ekranie, by wybudzić urządzenie</string>
+    <string name="device_doze_title">Ekran dostosowany do otoczenia</string>
     <!-- camera -->
     <!-- s2s -->
     <!-- Kcal -->

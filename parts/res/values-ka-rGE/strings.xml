@@ -15,11 +15,6 @@
      limitations under the License.
 -->
 <resources>
-    <string name="app_name">Xiaomi</string>
-    <string name="advanced_settings">Дополнительные настройки</string>
-    <string name="taptowake_title">Включение нажатием</string>
-    <string name="taptowake_summary">Двойной тап в любом месте экрана, что бы разбудить устройство</string>
-    <string name="device_doze_title">Индикация событий (doze)</string>
     <!-- camera -->
     <!-- s2s -->
     <!-- Kcal -->

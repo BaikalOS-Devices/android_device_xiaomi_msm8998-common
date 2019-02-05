@@ -17,10 +17,28 @@
 <resources>
     <string name="app_name">Xiaomi</string>
     <string name="advanced_settings">Дополнительные настройки</string>
+    <string name="category_system">Система</string>
+    <string name="vib_strength_title_head">Интенсивность вибрации</string>
     <string name="taptowake_title">Включение нажатием</string>
     <string name="taptowake_summary">Двойной тап в любом месте экрана, что бы разбудить устройство</string>
+    <string name="display_title">Экран</string>
     <string name="device_doze_title">Индикация событий (doze)</string>
     <!-- camera -->
+    <string name="camera_title">Камера</string>
+    <string name="camera_hal3_title">Включить Camera2 API</string>
     <!-- s2s -->
+    <string name="s2s_title">Перевернуть для сна</string>
+    <string name="s2s_vib_strength_title_head">Вибрация при \"Перевернуть для сна\"</string>
     <!-- Kcal -->
+    <string name="kcal_title">Калибровка дисплея</string>
+    <string name="kcal_summary">Калибровка цветов дисплея с помощью KCAL</string>
+    <string name="kcal_enabled_title">Включить KCAL</string>
+    <string name="kcal_enabled_summary">Включить калибровку дисплея с использованием KCAL</string>
+    <string name="kcal_red">Красный</string>
+    <string name="kcal_green">Зеленый</string>
+    <string name="kcal_blue">Синий</string>
+    <string name="kcal_saturation">Насыщенность</string>
+    <string name="kcal_contrast">Контраст</string>
+    <string name="menu_reset">Сбросить</string>
+    <string name="kcal_color_temp">Цветовая температура (К)</string>
 </resources>

@@ -32,4 +32,13 @@
     <!-- Kcal -->
     <string name="kcal_title">显示颜色</string>
     <string name="kcal_summary">基于KCAL的显示颜色校准</string>
+    <string name="kcal_enabled_title">启用KCAL</string>
+    <string name="kcal_enabled_summary">使用KCAL打开显示校准</string>
+    <string name="kcal_red">红色</string>
+    <string name="kcal_green">绿色</string>
+    <string name="kcal_blue">蓝色</string>
+    <string name="kcal_saturation">饱和度</string>
+    <string name="kcal_contrast">对比度</string>
+    <string name="menu_reset">重置</string>
+    <string name="kcal_color_temp">色温(K)</string>
 </resources>

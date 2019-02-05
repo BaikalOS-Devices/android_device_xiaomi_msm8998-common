@@ -15,7 +15,21 @@
      limitations under the License.
 -->
 <resources>
+    <string name="app_name">Xiaomi</string>
+    <string name="advanced_settings">Разширени</string>
+    <string name="category_system">Система</string>
+    <string name="vib_strength_title_head">Сила на вибрацията</string>
+    <string name="taptowake_title">Чукнете за събуждане</string>
+    <string name="display_title">Дисплей</string>
+    <string name="device_doze_title">Активнен дисплей</string>
     <!-- camera -->
+    <string name="camera_title">Камера</string>
     <!-- s2s -->
     <!-- Kcal -->
+    <string name="kcal_red">Червено</string>
+    <string name="kcal_green">Зелено</string>
+    <string name="kcal_blue">Синьо</string>
+    <string name="kcal_saturation">Насищане</string>
+    <string name="kcal_contrast">Контраст</string>
+    <string name="menu_reset">Начално състояние</string>
 </resources>

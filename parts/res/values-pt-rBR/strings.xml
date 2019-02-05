@@ -15,7 +15,30 @@
      limitations under the License.
 -->
 <resources>
+    <string name="app_name">Xiaomi</string>
+    <string name="advanced_settings">Avançado</string>
+    <string name="category_system">Sistema</string>
+    <string name="vib_strength_title_head">Intensidade da vibração</string>
+    <string name="taptowake_title">Tocar para activar</string>
+    <string name="taptowake_summary">Tocar duas vezes em qualquer ponto do ecrã para activar o dispositivo</string>
+    <string name="display_title">Display</string>
+    <string name="device_doze_title">Ecrã ambiente</string>
     <!-- camera -->
+    <string name="camera_title">Câmara</string>
+    <string name="camera_hal3_title">Habilitar o Camera2 API</string>
     <!-- s2s -->
+    <string name="s2s_title">Deslizar para Guardar</string>
+    <string name="s2s_vib_strength_title_head">Sweep2sleep de vibração</string>
     <!-- Kcal -->
+    <string name="kcal_title">Cor da exposição</string>
+    <string name="kcal_summary">Calibração de cores de exibição usando KCAL</string>
+    <string name="kcal_enabled_title">Habilitar KCAL</string>
+    <string name="kcal_enabled_summary">Vire na calibração de exibição usando KCAL</string>
+    <string name="kcal_red">Vermelho</string>
+    <string name="kcal_green">Verde</string>
+    <string name="kcal_blue">Azul</string>
+    <string name="kcal_saturation">Saturação</string>
+    <string name="kcal_contrast">Constrast</string>
+    <string name="menu_reset">Repor</string>
+    <string name="kcal_color_temp">Temperatura da cor</string>
 </resources>

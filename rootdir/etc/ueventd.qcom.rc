@@ -149,3 +149,6 @@
 
 # sys-fs display
 /sys/class/graphics/fb*     dynamic_fps              0664    system  graphics
+
+# KCAL
+/sys/devices/platform/kcal_ctrl.0/* 0666 system system

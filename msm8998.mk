@@ -18,7 +18,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_n_mr1.mk
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay
+    $(LOCAL_PATH)/overlay \
+    $(LOCAL_PATH)/overlay-custom
+
+PRODUCT_PACKAGE_OVERLAYS += vendor/omni/overlay/CarrierConfig
 
 # Permissions
 PRODUCT_COPY_FILES += \

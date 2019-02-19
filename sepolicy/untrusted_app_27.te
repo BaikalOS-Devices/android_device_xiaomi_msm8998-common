@@ -1,0 +1,11 @@
+allow untrusted_app_27 bg_boot_complete_prop:file { open read };
+allow untrusted_app_27 bg_daemon_prop:file { open read };
+#allow untrusted_app_27 bluetooth_prop:file { open read };
+#allow untrusted_app_27 bootloader_boot_reason_prop:file { open read };
+allow untrusted_app_27 boottime_prop:file { open read };
+#allow untrusted_app_27 proc_stat:file { open read };
+#allow untrusted_app_27 proc_version:file { open read };
+#allow untrusted_app_27 runtime_event_log_tags_file:file { open read };
+allow untrusted_app_27 self:udp_socket ioctl;
+allow untrusted_app_27 vold_exec:file { open read };
+

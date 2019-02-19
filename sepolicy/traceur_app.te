@@ -1,0 +1,6 @@
+allow traceur_app bg_boot_complete_prop:file { open read };
+allow traceur_app bg_daemon_prop:file { open read };
+#allow traceur_app bluetooth_prop:file { open read };
+#allow traceur_app bootloader_boot_reason_prop:file { open read };
+allow traceur_app boottime_prop:file { open read };
+

@@ -1,0 +1,9 @@
+allow system_app bg_boot_complete_prop:file { open read };
+allow system_app bg_daemon_prop:file { open read };
+#allow system_app bootloader_boot_reason_prop:file { open read };
+allow system_app boottime_prop:file { open read };
+allow system_app camera_prop:file { open read };
+allow system_app cnd_vendor_prop:file { open read };
+allow system_app console_silent_prop:file { open read };
+allow system_app ctl_LKCore_prop:file { open read };
+allow system_app ctl_atfwd_prop:file { open read };

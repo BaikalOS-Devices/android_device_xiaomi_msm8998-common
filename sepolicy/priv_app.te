@@ -1,1 +1,21 @@
 allow priv_app adsprpcd_file:filesystem getattr;
+allow priv_app adbd_exec:file getattr;
+allow priv_app bg_boot_complete_prop:file { open read };
+allow priv_app bg_daemon_prop:file { open read };
+#allow priv_app blkid_exec:file getattr;
+#allow priv_app bluetooth_prop:file { open read };
+#allow priv_app bootloader_boot_reason_prop:file { open read };
+allow priv_app boottime_prop:file { open read };
+allow priv_app bt_firmware_file:filesystem getattr;
+allow priv_app cameraserver_exec:file getattr;
+allow priv_app device:dir { open read };
+allow priv_app firmware_file:filesystem getattr;
+#allow priv_app proc:file { open read };
+allow priv_app proc_interrupts:file { open read };
+allow priv_app proc_modules:file { open read };
+allow priv_app sysfs:dir { open read };
+#allow priv_app sysfs:file { open read };
+allow priv_app sysfs_android_usb:file { open read };
+allow priv_app uncrypt_exec:file getattr;
+allow priv_app wificond_exec:file getattr;
+

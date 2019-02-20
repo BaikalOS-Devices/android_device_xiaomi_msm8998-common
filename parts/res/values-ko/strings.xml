@@ -17,10 +17,28 @@
 <resources>
     <string name="app_name">샤오미</string>
     <string name="advanced_settings">고급 설정</string>
+    <string name="category_system">시스템</string>
+    <string name="vib_strength_title_head">진동 세기</string>
     <string name="taptowake_title">탭하여 대기 모드 해제</string>
     <string name="taptowake_summary">화면 아무 곳이나 두 번 탭하여 기기 대기 모드 해제</string>
+    <string name="display_title">디스플레이</string>
     <string name="device_doze_title">앰비언트 디스플레이</string>
     <!-- camera -->
+    <string name="camera_title">카메라</string>
+    <string name="camera_hal3_title">카메라2 API 활성화</string>
     <!-- s2s -->
+    <string name="s2s_title">밀어서 화면 끄기</string>
+    <string name="s2s_vib_strength_title_head">밀어서 화면 끄기시에 진동</string>
     <!-- Kcal -->
+    <string name="kcal_title">디스플레이 색상</string>
+    <string name="kcal_summary">KCAL을 사용하는 디스플레이 조정</string>
+    <string name="kcal_enabled_title">KCAL 활성화</string>
+    <string name="kcal_enabled_summary">KCAL을 사용하는 디스플레이 조정 활성화</string>
+    <string name="kcal_red">빨강</string>
+    <string name="kcal_green">초록</string>
+    <string name="kcal_blue">파랑</string>
+    <string name="kcal_saturation">채도</string>
+    <string name="kcal_contrast">대비</string>
+    <string name="menu_reset">초기화</string>
+    <string name="kcal_color_temp">색 온도 (K)</string>
 </resources>

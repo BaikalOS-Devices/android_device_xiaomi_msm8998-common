@@ -23,4 +23,13 @@
     <!-- camera -->
     <!-- s2s -->
     <!-- Kcal -->
+    <string name="kcal_enabled_title">Activar KCAL</string>
+    <string name="kcal_enabled_summary">Encender la calibración de pantalla usando KCAL</string>
+    <string name="kcal_red">Rojo</string>
+    <string name="kcal_green">Verde</string>
+    <string name="kcal_blue">Azul</string>
+    <string name="kcal_saturation">Saturación</string>
+    <string name="kcal_contrast">Contraste</string>
+    <string name="menu_reset">Restablecer</string>
+    <string name="kcal_color_temp">Temperatura de color (K)</string>
 </resources>
